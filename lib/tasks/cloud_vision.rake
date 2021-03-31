@@ -11,7 +11,6 @@ API_URL = ENV["API_URL"]
 
 # 画像をbase64にエンコード
 base64_image = Base64.strict_encode64(File.new(IMAGE_FILE, 'rb').read)
-
 # APIリクエスト用のJSONパラメータの組み立て
 body = {
   requests: [{
@@ -20,10 +19,10 @@ body = {
     },
     features: [
       {
-        type: 'LABEL_DETECTION',
+        type: "DOCUMENT_TEXT_DETECTION",
         maxResults: 5
       }
-    ]
+    ],
   }]
 }.to_json
 
